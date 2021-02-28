@@ -33,10 +33,9 @@ class Article:
     Article contains all necessary information for creating itself in db.
     """
     def __init__(self, raw_name, parent_section):
-        self.raw_name = raw_name
-        self.number, self.name = raw_name.split('-', 1)
+        self.name = raw_name
         self.parent_section = parent_section 
         
     def __repr__(self):
-        return 'Article: "{}"'.format(self.raw_name)
+        return 'Article: "{}"'.format(self.name)
  

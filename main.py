@@ -8,7 +8,7 @@ from migrator import run
 
 
 # Configuration
-PATH_TO_CONTENT = '/Users/admin/Developer/Python/Article migrator/content'
+PATH_TO_CONTENT = '/Users/admin/Developer/DjangoProjects/Python_book/Article migrator/content'
 
 # The run part
 if __name__ == '__main__':
