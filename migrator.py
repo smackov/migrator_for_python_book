@@ -9,9 +9,6 @@ from models import Chapter, Section, Article
 def run(path):
     """General function."""
     chapters, sections, articles = lookup_dirs(path)
-    print(chapters)
-    print(sections)
-    print(articles)
 
 
 def lookup_dirs(root_path):
@@ -50,7 +47,8 @@ def we_are_in_chapter_folder(root_path, current_path):
 
 
 def we_are_in_section_folder(root_path, current_path):
-    path_to_parent_folder, name_of_parent_folder, name_of_folder = current_path.rsplit('/', 2)
+    path_to_parent_folder, name_of_parent_folder, name_of_folder = current_path.rsplit(
+        '/', 2)
     if (path_to_parent_folder == root_path and is_correct_name(name_of_parent_folder)
             and is_correct_name(name_of_folder)):
         return True
@@ -62,12 +60,14 @@ def extract_chapters(dirs):
 
 
 def extract_sections(dirs, current_path, chapters):
-    parent_chapter = get_chapter_by_name(current_path.rsplit('/', 1)[-1], chapters)
-    return [Section(section_name, parent_chapter) for section_name in dirs]
+    parent_chapter = get_chapter_by_name(
+        current_path.rsplit('/', 1)[-1], chapters)
+    return [Section(section_name, parent_chapter, current_path) for section_name in dirs]
 
 
 def extract_articles(files, current_path, sections):
-    parent_section = get_section_by_name(current_path.rsplit('/', 1)[-1], sections)
+    parent_section = get_section_by_name(
+        current_path.rsplit('/', 1)[-1], sections)
     return [Article(article_name, parent_section) for article_name in files]
 
 
