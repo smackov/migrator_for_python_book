@@ -1,14 +1,25 @@
 import os
 import re
 
-from rich import print
+# from rich import print
 
 from models import Chapter, Section, Article
 
 
-def run(path):
+def run(root_path):
     """General function."""
-    chapters, sections, articles = lookup_dirs(path)
+    chapters, sections, articles = lookup_dirs(root_path)
+    print(articles[0].name)
+    clear_db()
+    populate_db(chapters=chapters, sections=sections, articles=articles)
+    
+
+def clear_db():
+    pass
+
+
+def populate_db(chapters, sections, articles):
+    pass
 
 
 def lookup_dirs(root_path):

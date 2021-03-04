@@ -74,8 +74,6 @@ class Article:
             return file.read()
 
     def retrieve_name_and_index_from_text(self):
-        print(self._text)
-        print(type(self._text))
         header_lines_of_text = [line for line in self._text.split('\n')
                                 if line.startswith('#')]
         name = header_lines_of_text[0].strip('# ')
