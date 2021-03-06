@@ -77,7 +77,8 @@ class Article:
         header_lines_of_text = [line for line in self._text.split('\n')
                                 if line.startswith('#')]
         name = header_lines_of_text[0].strip('# ')
-        return name, header_lines_of_text[1:]
+        index = '\n'.join(header_lines_of_text[1:])
+        return name, index
 
     def __repr__(self):
         return 'Article: "{}"'.format(self.raw_name)
