@@ -2,6 +2,10 @@
 SETTINGS MODULE
 """
 
-PATH_TO_CONTENT = '/Users/admin/Developer/DjangoProjects/Python_book/Article migrator/content'
-PATH_TO_DJANGO_APPS = '/Users/admin/Developer/DjangoProjects/Python_book/pythonBookSite/pythonBookSite'
-PATH_TO_DJANGO_PROJECT_SETTINGS = 'pythonBookSite.settings'
+
+from decouple import config
+
+
+PATH_TO_CONTENT = config('PATH_TO_CONTENT')
+PATH_TO_DJANGO_APPS = config('PATH_TO_DJANGO_APPS')
+PATH_TO_DJANGO_PROJECT_SETTINGS = config('PATH_TO_DJANGO_PROJECT_SETTINGS')
