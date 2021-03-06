@@ -56,7 +56,7 @@ def we_are_in_section_folder(root_path, current_path):
 
 
 def extract_chapters(dirs):
-    return [Chapter(chapter_name) for chapter_name in dirs]
+    return [Chapter(chapter_name) for chapter_name in dirs if is_correct_name(chapter_name)]
 
 
 def extract_sections(dirs, current_path, chapters):
