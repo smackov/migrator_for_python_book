@@ -56,16 +56,19 @@ def we_are_in_section_folder(root_path, current_path):
 
 
 def extract_chapters(dirs):
+    dirs = sorted(dirs)
     return [Chapter(chapter_name) for chapter_name in dirs if is_correct_name(chapter_name)]
 
 
 def extract_sections(dirs, current_path, chapters):
+    dirs = sorted(dirs)
     parent_chapter = get_chapter_by_name(
         current_path.rsplit('/', 1)[-1], chapters)
     return [Section(section_name, parent_chapter, current_path) for section_name in dirs]
 
 
 def extract_articles(files, current_path, sections):
+    files = sorted(files)
     parent_section = get_section_by_name(
         current_path.rsplit('/', 1)[-1], sections)
     return [Article(article_name, parent_section) for article_name in files]
